@@ -1,0 +1,4 @@
+Tres sistemas de archivos distribuidos:
+*NFS (Sun Network File System)
+*AFS (Andrew Network File System)
+*DCE DFS (DCE Distributed File System)

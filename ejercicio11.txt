@@ -1,0 +1,15 @@
+a) Para aplicaciones que usan la API OpenMP, la instalación del entorno dependerá
+del SO en dónde se ejecute.
+Para ambientes Linux: sudo apt-get install libgomp1
+Para ambientes MAC: *brew install llvm
+		    *brew install libomp
+
+b) Para su compilación, usaremos el compilador que usamos habitualmente para C.
+Debemos ejecutar el comando: "gcc programa.c -fopenmp -o programa"
+Siendo gcc el compilador, "programa.c" el nombre del archivo que contiene el código, y con "programa" indicaremos el nombre del archivo ejecutable. 
+Además, utilizaremos "-fopenmp" para que se use OpenMP al compilar.
+
+c) Para ejecutar, debemos indicar el número de procesadores a utilizar, y el nombre del archivo ejecutable. De la siguiente manera:
+OMP_NUM_THREADS=N ./programa
+
+Siendo N el número de procesadores a utilizar y "programa" el nombre del archivo ejecutable
