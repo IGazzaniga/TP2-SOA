@@ -2,3 +2,11 @@ Tres sistemas de archivos distribuidos:
 *NFS (Sun Network File System)
 *AFS (Andrew Network File System)
 *DCE DFS (DCE Distributed File System)
+
+Principales diferencias:
+
+*En DCE DFS, los nodos pueden ser cliente y servidor al mismo tiempo. En AFS esto no está soportado, por lo que cada nodo cliente tiene una caché para acceder más rápido a los archivos. en NFS hay un solo servidor y muchos clientes.
+*En DCE DFS, los archivos se transfieren en bloques de 64 Kb. En AFS se transfieren completos
+*En NFS, al modificar un archivo remoto que hemos abierto o montado en nuestra computadora, los datos se escriben en el archivo remoto en tiempo real. En AFS esto no ocurre, sino que las modificaciones se realizan localmente, y al cerrar el archivo se comprueba su consistencia con el archivo remoto y recién ahí se modifica.
+*Por el motivo mencionado arriba, el rendimiento de AFS es superior al de NFS.
+*NFS es recomendable para archivos que son accedidos por muchos usuarios concurrentemente. AFS se recomienda para archivos que se actualicen poco, o que sean modificados solo por un usuario.
