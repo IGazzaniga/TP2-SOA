@@ -1,6 +1,6 @@
 /* 
   Compile with: mpicc ejercicio19.c -o ejercicio19 -lm
-  Run with: mpirun -n 3 ./ejercicio19 (número a calcular raíz)
+  Run with: mpirun -n 3 ./ejercicio19 X(número a calcular potencias)
 */
 
 
