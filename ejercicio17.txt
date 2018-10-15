@@ -1,0 +1,23 @@
+Al principio, al introducir una nueva sentencia print y no sincronizar con las barreras de memoria, cada uno de los procesos ejecutaban "intercalados" las sentencias.
+
+HOLA MUNDO: proceso 0 de 4
+Sentencia añadida: proceso 0 de 4
+HOLA MUNDO: proceso 1 de 4
+Sentencia añadida: proceso 1 de 4
+HOLA MUNDO: proceso 2 de 4
+Sentencia añadida: proceso 2 de 4
+HOLA MUNDO: proceso 3 de 4
+Sentencia añadida: proceso 3 de 4
+
+
+En cambio, al introducir la barrera entre ambas sentencias, primero se ejecuta la existente, y luego de que TODOS los procesos la hayan impreso,
+recién ahí todos los procesos ejecutan la 2da sentencia, aunque no necesariamente en el mismo orden de procesos.
+
+HOLA MUNDO: proceso 2 de 4
+HOLA MUNDO: proceso 1 de 4
+HOLA MUNDO: proceso 3 de 4
+HOLA MUNDO: proceso 0 de 4
+Sentencia añadida: proceso 2 de 4
+Sentencia añadida: proceso 0 de 4
+Sentencia añadida: proceso 1 de 4
+Sentencia añadida: proceso 3 de 4

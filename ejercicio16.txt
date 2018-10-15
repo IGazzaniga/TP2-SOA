@@ -1,0 +1,54 @@
+Para el archivo "primos", se compiló "primos.c", en el que el cálculo de los números primos se realiza de forma secuencial y sin memoria compartida.
+En todos los casos se calcularon los números primos hasta el número 200000, y tanto con MPI como con OpenMP, se utilizaron 4 procesadores.
+
+Lo que arrojaron "perf" y "/usr/bin/time" para "primos" fue lo siguiente: 
+
+11.57user 0.00system 0:11.58elapsed 99%CPU (0avgtext+0avgdata 1552maxresident)k
+0inputs+0outputs (0major+60minor)pagefaults 0swaps
+
+Performance counter stats for './primos 200000':
+
+      12119,883326      task-clock (msec)         #    0,999 CPUs utilized          
+               210      context-switches          #    0,017 K/sec                  
+                 1      cpu-migrations            #    0,000 K/sec                  
+                51      page-faults               #    0,004 K/sec                  
+    25.369.779.109      cycles                    #    2,093 GHz                    
+    16.526.534.681      stalled-cycles-frontend   #   65,14% frontend cycles idle   
+     3.422.280.950      stalled-cycles-backend    #   13,49% backend cycles idle    
+    17.135.381.989      instructions              #    0,68  insn per cycle         
+                                                  #    0,96  stalled cycles per insn
+     3.426.832.386      branches                  #  282,745 M/sec                  
+           188.349      branch-misses             #    0,01% of all branches        
+
+      12,127214576 seconds time elapsed
+
+Para primos utilizando OpenMP, se utilizaron, como se mencionó antes, 4 procesadores, y se obtuvo la siguiente información:
+
+11.48user 0.01system 0:06.57elapsed 174%CPU (0avgtext+0avgdata 3260maxresident)k
+0inputs+0outputs (0major+265minor)pagefaults 0swaps
+
+Performance counter stats for './primos_omp.sh':
+
+      11503,927082      task-clock (msec)         #    1,799 CPUs utilized          
+             1.419      context-switches          #    0,123 K/sec                  
+                30      cpu-migrations            #    0,003 K/sec                  
+               256      page-faults               #    0,022 K/sec                  
+    24.074.846.891      cycles                    #    2,093 GHz                    
+    15.899.813.380      stalled-cycles-frontend   #   66,04% frontend cycles idle   
+     3.792.068.109      stalled-cycles-backend    #   15,75% backend cycles idle    
+    18.853.633.189      instructions              #    0,78  insn per cycle         
+                                                  #    0,84  stalled cycles per insn
+     5.139.520.213      branches                  #  446,762 M/sec                  
+           282.764      branch-misses             #    0,01% of all branches        
+
+       6,394948224 seconds time elapsed
+
+
+Para primos utilizando MPI, también se utilizaron 4 procesadores y se obtuvo lo siguiente:
+
+13.54user 2.07system 0:08.08elapsed 193%CPU (0avgtext+0avgdata 18704maxresident)k
+400inputs+19952outputs (25major+9070minor)pagefaults 0swaps
+
+
+
+
