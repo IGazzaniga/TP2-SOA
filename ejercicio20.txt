@@ -1,0 +1,61 @@
+c) Al hacer que el programa aumente los precios de forma paralela con MPI, se nota que al ejecutarlo, cuantos más subprocesos se utilizan, más tiempo tarda
+el programa en ejecutarse. Abajo se adjuntan los resultados del tiempo para 2,5,10 y 20 subprocesos, notando que al principio la relación entre el tiempo
+y la cantidad de subprocesos es casi lineal, aunque luego deja esa tendencia
+
+
+Con 2 subprocesos:
+/usr/bin/time mpirun -n 2 ./ejercicio20_paralelo
+Proceso 0 llama a aumento con 0, 500000 = 500000
+Proceso 1 llama a aumento con 500000, 1000000 = 1000000
+0.14user 0.05system 0:00.26elapsed 78%CPU (0avgtext+0avgdata 18704maxresident)k
+0inputs+17168outputs (14major+7955minor)pagefaults 0swaps
+
+Con 5 subprocesos:
+/usr/bin/time mpirun -n 5 ./ejercicio20_paralelo
+Proceso 2 llama a aumento con 400000, 600000 = 600000
+Proceso 3 llama a aumento con 600000, 800000 = 800000
+Proceso 1 llama a aumento con 200000, 400000 = 400000
+Proceso 4 llama a aumento con 800000, 1000000 = 1000000
+Proceso 0 llama a aumento con 0, 200000 = 200000
+0.26user 0.12system 0:00.34elapsed 112%CPU (0avgtext+0avgdata 18820maxresident)k
+0inputs+20824outputs (23major+15129minor)pagefaults 0swaps
+
+Con 10 subprocesos:
+/usr/bin/time mpirun -n 10 ./ejercicio20_paralelo
+Proceso 9 llama a aumento con 900000, 1000000 = 1000000
+Proceso 3 llama a aumento con 300000, 400000 = 400000
+Proceso 8 llama a aumento con 800000, 900000 = 900000
+Proceso 0 llama a aumento con 0, 100000 = 100000
+Proceso 1 llama a aumento con 100000, 200000 = 200000
+Proceso 5 llama a aumento con 500000, 600000 = 600000
+Proceso 2 llama a aumento con 200000, 300000 = 300000
+Proceso 4 llama a aumento con 400000, 500000 = 500000
+Proceso 7 llama a aumento con 700000, 800000 = 800000
+Proceso 6 llama a aumento con 600000, 700000 = 700000
+0.54user 0.19system 0:00.50elapsed 148%CPU (0avgtext+0avgdata 18940maxresident)k
+0inputs+25192outputs (33major+26982minor)pagefaults 0swaps
+
+Con 20 subprocesos:
+/usr/bin/time mpirun -n 20 ./ejercicio20_paralelo
+Proceso 19 llama a aumento con 950000, 1000000 = 1000000
+Proceso 15 llama a aumento con 750000, 800000 = 800000
+Proceso 18 llama a aumento con 900000, 950000 = 950000
+Proceso 3 llama a aumento con 150000, 200000 = 200000
+Proceso 14 llama a aumento con 700000, 750000 = 750000
+Proceso 0 llama a aumento con 0, 50000 = 50000
+Proceso 13 llama a aumento con 650000, 700000 = 700000
+Proceso 8 llama a aumento con 400000, 450000 = 450000
+Proceso 17 llama a aumento con 850000, 900000 = 900000
+Proceso 12 llama a aumento con 600000, 650000 = 650000
+Proceso 11 llama a aumento con 550000, 600000 = 600000
+Proceso 2 llama a aumento con 100000, 150000 = 150000
+Proceso 7 llama a aumento con 350000, 400000 = 400000
+Proceso 10 llama a aumento con 500000, 550000 = 550000
+Proceso 16 llama a aumento con 800000, 850000 = 850000
+Proceso 4 llama a aumento con 200000, 250000 = 250000
+Proceso 1 llama a aumento con 50000, 100000 = 100000
+Proceso 6 llama a aumento con 300000, 350000 = 350000
+Proceso 5 llama a aumento con 250000, 300000 = 300000
+Proceso 9 llama a aumento con 450000, 500000 = 500000
+1.03user 0.48system 0:00.87elapsed 172%CPU (0avgtext+0avgdata 19088maxresident)k
+0inputs+33936outputs (55major+50738minor)pagefaults 0swaps
