@@ -66,6 +66,7 @@ Performance counter stats for 'mpirun --allow-run-as-root -n 4 ./primos_mpi 2000
        8,693456052 seconds time elapsed
 
 
-
+A partir de estos resultados, lo que podemos observar es que utilizando tanto MPI como OpenMP, se consumen más recursos del sistema, al tener que
+realizar más cambios de contexto y migraciones de CPU. A su vez, MPI consume muchos más recursos que OpenMP, y su ejecución lleva más tiempo.
 
 
