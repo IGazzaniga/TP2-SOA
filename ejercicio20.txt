@@ -1,7 +1,7 @@
 c) Al hacer que el programa aumente los precios de forma paralela con MPI, se nota que al ejecutarlo, cuantos más subprocesos se utilizan, más tiempo tarda
 el programa en ejecutarse. Abajo se adjuntan los resultados del tiempo para 2,5,10 y 20 subprocesos, notando que al principio la relación entre el tiempo
-y la cantidad de subprocesos es casi lineal, aunque luego deja esa tendencia
-
+y la cantidad de subprocesos es casi lineal, aunque luego deja esa tendencia. Esto se debe a que hay demasiados cambios de contexto para que se comuniquen entre ellos,
+lo que ocasiona mayor demora en la ejecución del programa.
 
 Con 2 subprocesos:
 /usr/bin/time mpirun -n 2 ./ejercicio20_paralelo

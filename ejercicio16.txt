@@ -1,5 +1,5 @@
 Para el archivo "primos", se compiló "primos.c", en el que el cálculo de los números primos se realiza de forma secuencial y sin memoria compartida.
-En todos los casos se calcularon los números primos hasta el número 200000, y tanto con MPI como con OpenMP, se utilizaron 4 procesadores.
+En todos los casos se calcularon los números primos hasta el número 200.000, y tanto con MPI como con OpenMP, se utilizaron 4 procesadores.
 
 Lo que arrojaron "perf" y "/usr/bin/time" para "primos" fue lo siguiente: 
 
@@ -48,6 +48,23 @@ Para primos utilizando MPI, también se utilizaron 4 procesadores y se obtuvo lo
 
 13.54user 2.07system 0:08.08elapsed 193%CPU (0avgtext+0avgdata 18704maxresident)k
 400inputs+19952outputs (25major+9070minor)pagefaults 0swaps
+
+Performance counter stats for 'mpirun --allow-run-as-root -n 4 ./primos_mpi 200000':
+
+      17004,983329      task-clock (msec)         #    1,956 CPUs utilized          
+            86.861      context-switches          #    0,005 M/sec                  
+                64      cpu-migrations            #    0,004 K/sec                  
+             8.930      page-faults               #    0,525 K/sec                  
+    35.538.059.792      cycles                    #    2,090 GHz                    
+    23.068.169.035      stalled-cycles-frontend   #   64,91% frontend cycles idle   
+     8.468.175.413      stalled-cycles-backend    #   23,83% backend cycles idle    
+    23.761.739.182      instructions              #    0,67  insn per cycle         
+                                                  #    0,97  stalled cycles per insn
+     4.688.407.521      branches                  #  275,708 M/sec                  
+        26.659.641      branch-misses             #    0,57% of all branches        
+
+       8,693456052 seconds time elapsed
+
 
 
 
